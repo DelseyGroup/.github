@@ -1,0 +1,46 @@
+name: Décision
+description: Une question qui attend la décision de quelqu'un d'autre. Jamais un travail de développement (Task, Bug, Feature).
+title: "[Décision] "
+type: Decision
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Avant d'ouvrir : cherchez dans les décisions fermées, les ADR (`docs/adr/`) et le `CLAUDE.md` du dépôt — une question déjà tranchée ne se repose pas.
+        Assignez l'issue au décideur indiqué dans la section « Qui décide » du `CLAUDE.md`.
+  - type: textarea
+    id: contexte
+    attributes:
+      label: Contexte
+      description: 3 à 5 lignes — ce qui amène la question.
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Options
+      description: A, B… avec leurs conséquences.
+      value: |
+        - **A** :
+        - **B** :
+    validations:
+      required: true
+  - type: textarea
+    id: recommandation
+    attributes:
+      label: Recommandation
+      description: L'option recommandée, et pourquoi.
+    validations:
+      required: true
+  - type: textarea
+    id: bloque
+    attributes:
+      label: Bloque
+      description: Ce qui attend la réponse (lot, PR, livraison). « Rien » si rien n'est bloqué.
+    validations:
+      required: true
+  - type: input
+    id: lot
+    attributes:
+      label: Lot
+      description: L'identifiant du lot, s'il y en a un (ex. PLANNER-261127-1).
